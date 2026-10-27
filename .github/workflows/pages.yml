@@ -12,6 +12,7 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
@@ -27,7 +28,18 @@ jobs:
       - run: npm run check
         env:
           VITE_API_URL: ${{ vars.VITE_API_URL }}
-      - run: npx playwright install --with-deps chromium
+      - name: Prepare Chromium
+        timeout-minutes: 5
+        run: |
+          if command -v google-chrome >/dev/null 2>&1; then
+            echo "CHROMIUM_PATH=$(command -v google-chrome)" >> "$GITHUB_ENV"
+            google-chrome --version
+          elif command -v chromium >/dev/null 2>&1; then
+            echo "CHROMIUM_PATH=$(command -v chromium)" >> "$GITHUB_ENV"
+            chromium --version
+          else
+            npx playwright install --with-deps chromium
+          fi
       - run: npm run test:e2e
         env:
           CI: "true"

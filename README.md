@@ -34,7 +34,7 @@ npm run test:e2e        # Chromium: Pixel 7 и desktop
 npx wrangler deploy --dry-run
 ```
 
-В этой среде браузерные тесты используют `/usr/bin/chromium`; в CI — установленный Playwright Chromium. Можно задать `CHROMIUM_PATH`. E2E использует подмену сетевого GitHub/Worker API, а не реальные личные данные.
+В этой среде браузерные тесты используют `/usr/bin/chromium`; в CI — браузер из образа GitHub (Chrome/Chromium), а при его отсутствии устанавливается Playwright Chromium. Можно задать `CHROMIUM_PATH`. E2E использует подмену сетевого GitHub/Worker API, а не реальные личные данные.
 
 ## Хранение и синхронизация
 
