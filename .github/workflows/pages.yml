@@ -27,7 +27,7 @@ jobs:
       - run: python scripts/validate-fens.py
       - run: npm run check
         env:
-          VITE_API_URL: ${{ vars.VITE_API_URL }}
+          VITE_API_URL: ${{ vars.VITE_API_URL || 'https://chess-studio-api.axilles161.workers.dev' }}
       - name: Prepare Chromium
         timeout-minutes: 5
         run: |

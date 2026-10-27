@@ -111,13 +111,15 @@ openssl rand -base64 48 | npx wrangler secret put SESSION_SECRET
 
 ## 5. Подключение frontend к Worker
 
-После deploy Worker скопируйте его URL в **Settings → Secrets and variables → Actions → Variables** публичного репозитория:
+В текущей установке workflow `pages.yml` уже использует публичный адрес `https://chess-studio-api.axilles161.workers.dev` при сборке сайта. Вручную добавлять GitHub Actions Variable для этого аккаунта не требуется.
+
+Для другого API URL задайте **Settings → Secrets and variables → Actions → Variables → VITE_API_URL**. Эта repository variable имеет приоритет над адресом по умолчанию:
 
 ```text
 VITE_API_URL = https://chess-studio-api.axilles161.workers.dev
 ```
 
-Это **Repository variable**, не секрет. Перезапустите Pages workflow: Vite получает адрес во время сборки. Локально можно создать `.env` по `.env.example`; в Git его не добавлять.
+Это публичная настройка, не секрет. Перезапустите Pages workflow после изменения: Vite получает адрес во время сборки. Локально можно создать `.env` по `.env.example`; в Git его не добавлять. Без локальной переменной окружения приложение сохраняет гостевой режим без облачного API.
 
 Для текущей установки можно подключить существующий Worker к репозиторию через [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/):
 
