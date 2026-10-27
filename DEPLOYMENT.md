@@ -119,6 +119,25 @@ VITE_API_URL = https://chess-studio-api.axilles161.workers.dev
 
 Это **Repository variable**, не секрет. Перезапустите Pages workflow: Vite получает адрес во время сборки. Локально можно создать `.env` по `.env.example`; в Git его не добавлять.
 
+Для текущей установки можно подключить существующий Worker к репозиторию через [Cloudflare Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/):
+
+1. В Cloudflare откройте `chess-studio-api` → **Settings → Builds → Connect**.
+2. Подключите GitHub и разрешите Cloudflare доступ к `Nickpavlenk0/chess-studio`.
+3. Выберите репозиторий `chess-studio` и production branch `main`.
+4. Задайте параметры:
+
+| Поле           | Значение                   |
+| -------------- | -------------------------- |
+| Root directory | `/` — корень репозитория   |
+| Build command  | `npm run lint && npm test` |
+| Deploy command | `npx wrangler deploy`      |
+
+У проекта уже есть `wrangler.toml`, где `name = "chess-studio-api"`, `main = "worker/index.ts"`, публичный URL и OAuth Client ID. Cloudflare установит зависимости проекта и выполнит Wrangler для серверного Worker. Сайт продолжает публиковаться через GitHub Pages.
+
+API token для Workers Builds Cloudflare может создать автоматически при подключении. Три секрета приложения (`GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET`) должны оставаться в runtime **Settings → Variables and Secrets** существующего Worker. В Build variables их переносить не требуется. После подключения новый push в `main` запускает сборку и публикацию; для первой сборки можно использовать кнопку запуска/повтора в Builds либо новый commit.
+
+После успешной публикации `https://chess-studio-api.axilles161.workers.dev/health` должен вернуть JSON с `service: "chess-studio"`, а обращение к `/api/progress` без авторизации — `401`. Ответ `Hello World!` означает, что рабочий код ещё не опубликован.
+
 При желании настройте ручной workflow `worker.yml`: GitHub Environment `cloudflare`, Secrets `CLOUDFLARE_API_TOKEN` и `CLOUDFLARE_ACCOUNT_ID`. Cloudflare API token должен иметь Workers Scripts Edit и Account Settings Read для выбранного аккаунта. На своём домене для настройки маршрутов могут понадобиться дополнительные права Workers Routes. Секреты GitHub/OAuth остаются в **Worker Secrets**, workflow не копирует их в frontend.
 
 ## 6. Сессии, Android и CORS

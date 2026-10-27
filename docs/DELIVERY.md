@@ -34,10 +34,10 @@
 
 ## Что осталось владельцу
 
-1. Настроить `GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET` в Worker Secrets и доступ для развёртывания Cloudflare.
+1. По сообщению владельца `GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET` и `SESSION_SECRET` добавлены в Worker Secrets. Для публикации осталось подключить существующий Worker к `chess-studio` через Cloudflare **Settings → Builds → Connect**. Значения секретов в среду разработки не передавались; проверить их действие можно после публикации API.
 2. Развернуть код Worker вместо Hello World, задать repository variable `VITE_API_URL` значением `https://chess-studio-api.axilles161.workers.dev`, повторно запустить Pages workflow и проверить реальное сохранение на Android.
 
-Из текущей среды доступ к настройкам GitHub Actions Variables и Environments ограничен (`403 Resource not accessible by integration`). Значение `VITE_API_URL` понадобится добавить владельцу после развёртывания API. Доступ Cloudflare для развёртывания ещё не настроен. Секреты не включались в исходники.
+Из текущей среды доступ к настройкам GitHub Actions Variables и Environments ограничен (`403 Resource not accessible by integration`). Значение `VITE_API_URL` понадобится добавить владельцу после развёртывания API. Прямой доступ среды разработки к Cloudflare не настроен; подготовлен путь публикации через встроенную Git-интеграцию Cloudflare Workers Builds. Секреты не включались в исходники.
 
 Точные команды, права и порядок проверки приведены в [DEPLOYMENT.md](../DEPLOYMENT.md). Живые OAuth и запись результатов ещё требуют проверки после настройки секретов и публикации API.
 
