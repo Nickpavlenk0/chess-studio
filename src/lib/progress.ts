@@ -1,4 +1,5 @@
 import { progressSchema, type ProgressEvent } from "./schema";
+import { knownSyncError } from "./sync-errors";
 export type SyncState = "saving" | "saved" | "error";
 export interface Pending {
   event: ProgressEvent;
@@ -67,6 +68,13 @@ export class CloudApi {
       },
     });
     if (!res.ok) {
+      const details: unknown = await res.json().catch(() => null);
+      const code =
+        details && typeof details === "object" && "code" in details
+          ? details.code
+          : undefined;
+      const message = knownSyncError(code);
+      if (message) throw Error(message);
       if (res.status === 401)
         throw Error("Сессия истекла. Войдите снова, затем повторите отправку.");
       if (res.status === 429)

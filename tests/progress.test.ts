@@ -169,3 +169,94 @@ it("accepts voluntary reveal without fabricating a move", () => {
     eventSchema.parse({ ...fixture(), firstMove: "a2a3" }),
   ).toThrow();
 });
+
+it.each([
+  [401, {}, "GITHUB_TOKEN_INVALID"],
+  [403, {}, "GITHUB_PERMISSION_DENIED"],
+  [404, {}, "GITHUB_REPOSITORY_UNAVAILABLE"],
+  [403, { "x-ratelimit-remaining": "0" }, "GITHUB_RATE_LIMITED"],
+  [503, {}, "GITHUB_UNAVAILABLE"],
+] as const)(
+  "classifies GitHub %s without exposing upstream bodies",
+  async (status, headers, code) => {
+    const { assertPrivateRepository } = await import("../worker/github");
+    const fetcher = vi.fn(async () =>
+      Response.json(
+        { message: "upstream-secret-sentinel" },
+        { status, headers },
+      ),
+    );
+    try {
+      await assertPrivateRepository(env, fetcher);
+      throw Error("Expected failure");
+    } catch (e) {
+      expect(e).toHaveProperty("code", code);
+      expect((e as Error).message).not.toContain("upstream-secret-sentinel");
+    }
+  },
+);
+it("rejects a missing storage token before calling GitHub and trims copied whitespace", async () => {
+  const { assertPrivateRepository } = await import("../worker/github");
+  const fetcher = vi.fn(async (_url, init) => {
+    expect((init?.headers as Record<string, string>).Authorization).toBe(
+      "Bearer test-token",
+    );
+    return Response.json({ private: true });
+  });
+  await expect(
+    assertPrivateRepository({ ...env, GITHUB_TOKEN: "   " }, fetcher),
+  ).rejects.toHaveProperty("code", "GITHUB_TOKEN_MISSING");
+  expect(fetcher).not.toHaveBeenCalled();
+  await assertPrivateRepository(
+    { ...env, GITHUB_TOKEN: " test-token\n" },
+    fetcher,
+  );
+});
+it("reports missing GitHub write permission rather than retrying the event as a conflict", async () => {
+  const e = eventSchema.parse(fixture());
+  const fetcher = vi.fn(async (_url, init) =>
+    init?.method === "PUT"
+      ? Response.json({ message: "not allowed" }, { status: 403 })
+      : Response.json({
+          sha: "current",
+          size: 30,
+          encoding: "base64",
+          content: btoa(JSON.stringify({ schemaVersion: 1, events: [] })),
+        }),
+  );
+  await expect(saveProgress(env, e, fetcher)).rejects.toHaveProperty(
+    "code",
+    "GITHUB_PERMISSION_DENIED",
+  );
+  expect(fetcher).toHaveBeenCalledTimes(2);
+});
+it("shows a precise storage error while preserving the distinction from a session error", async () => {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () =>
+      Response.json(
+        { code: "GITHUB_REPOSITORY_UNAVAILABLE", error: "secret-sentinel" },
+        { status: 502 },
+      ),
+    ),
+  );
+  await expect(
+    new CloudApi("https://worker.example", "session").load(),
+  ).rejects.toThrow("Repository access");
+  vi.unstubAllGlobals();
+});
+it("does not show arbitrary upstream messages for an unknown error code", async () => {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () =>
+      Response.json(
+        { code: "UNKNOWN", error: "secret-sentinel" },
+        { status: 502 },
+      ),
+    ),
+  );
+  await expect(
+    new CloudApi("https://worker.example", "session").load(),
+  ).rejects.toThrow("Облако недоступно (502)");
+  vi.unstubAllGlobals();
+});

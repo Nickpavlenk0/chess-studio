@@ -105,7 +105,10 @@ test("sync retries the same event, restores from cloud after reload and shows co
       const event = req.postDataJSON() as ProgressEvent;
       ids.push(event.id);
       if (fail)
-        return route.fulfill({ status: 503, json: { error: "unavailable" } });
+        return route.fulfill({
+          status: 502,
+          json: { code: "GITHUB_REPOSITORY_UNAVAILABLE", error: "unavailable" },
+        });
       if (!rows.some((r) => r.id === event.id)) rows.push(event);
       return route.fulfill({ json: { saved: true, id: event.id } });
     }
@@ -117,6 +120,12 @@ test("sync retries the same event, restores from cloud after reload and shows co
   await expect(page.locator(".sync-message")).toContainText(
     "Ошибка синхронизации",
   );
+  await expect(page.locator(".sync-message")).toContainText(
+    "Repository access",
+  );
+  await expect(
+    page.getByText("Личный журнал подключён", { exact: true }),
+  ).toHaveCount(0);
   fail = false;
   await page.getByRole("button", { name: "Повторить отправку" }).click();
   await expect(page.locator(".sync-message")).toContainText("Сохранено");

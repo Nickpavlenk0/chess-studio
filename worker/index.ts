@@ -1,5 +1,6 @@
 import { SignJWT, jwtVerify } from "jose";
 import { eventSchema } from "../src/lib/schema";
+import { storageStatusPage } from "./storage-status";
 import {
   assertPrivateRepository,
   HttpError,
@@ -218,6 +219,25 @@ async function handle(req: Request, env: Env) {
     return oauthLogin(req, env);
   if (url.pathname === "/auth/callback" && req.method === "GET")
     return oauthCallback(req, env);
+  if (url.pathname === "/api/storage-status" && req.method === "GET") {
+    let authenticated = false;
+    try {
+      const token = cookieValue(req, sessionCookie);
+      const authRequest =
+        !req.headers.has("Authorization") && token
+          ? new Request(req.url, {
+              headers: { Authorization: "Bearer " + token },
+            })
+          : req;
+      await authorize(authRequest, env);
+      authenticated = true;
+      await assertPrivateRepository(env);
+      await readProgress(env);
+      return storageStatusPage(undefined, true);
+    } catch (e) {
+      return storageStatusPage(e, authenticated);
+    }
+  }
   if (url.pathname !== "/api/progress") throw new HttpError(404, "Not found");
   await authorize(req, env);
   await assertPrivateRepository(env);
@@ -272,6 +292,7 @@ export default {
       response = json(
         {
           error: e instanceof HttpError ? e.message : "Unexpected server error",
+          ...(e instanceof HttpError && e.code ? { code: e.code } : {}),
         },
         e instanceof HttpError ? e.status : 500,
       );

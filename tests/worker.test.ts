@@ -217,3 +217,105 @@ it("OAuth callback verifies the real numeric owner and issues only a scoped sess
     vi.unstubAllGlobals();
   }
 });
+
+it("keeps owner storage diagnostics unavailable to anonymous visitors", async () => {
+  const fetcher = vi.fn();
+  vi.stubGlobal("fetch", fetcher);
+  const res = await worker.fetch(
+    new Request(env.API_URL + "/api/storage-status"),
+    env,
+  );
+  expect(res.status).toBe(401);
+  expect(await res.text()).toContain("OWNER_SESSION_REQUIRED");
+  expect(fetcher).not.toHaveBeenCalled();
+  vi.unstubAllGlobals();
+});
+it("allows a read-only storage check with a signed owner cookie without exposing training data", async () => {
+  const token = await signSession(env);
+  const fetcher = vi.fn(async (input) =>
+    String(input).endsWith("/chess-progress")
+      ? Response.json({ private: true })
+      : Response.json({
+          sha: "current",
+          size: 30,
+          encoding: "base64",
+          content: btoa(JSON.stringify({ schemaVersion: 1, events: [] })),
+        }),
+  );
+  vi.stubGlobal("fetch", fetcher);
+  const res = await worker.fetch(
+    new Request(env.API_URL + "/api/storage-status", {
+      headers: { Cookie: "__Host-chess-session=" + token },
+    }),
+    env,
+  );
+  expect(res.status).toBe(200);
+  const html = await res.text();
+  expect(html).toContain("STORAGE_READ_OK");
+  expect(html).not.toContain(token);
+  expect(html).not.toContain('"events"');
+  expect(res.headers.get("Cache-Control")).toBe("no-store");
+  for (const call of fetcher.mock.calls) expect(call).toHaveLength(2);
+  vi.unstubAllGlobals();
+});
+it("shows the owner the actual storage failure code without leaking upstream messages or token values", async () => {
+  const token = await signSession(env);
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () =>
+      Response.json({ message: "secret-sentinel" }, { status: 404 }),
+    ),
+  );
+  const res = await worker.fetch(
+    new Request(env.API_URL + "/api/storage-status", {
+      headers: { Cookie: "__Host-chess-session=" + token },
+    }),
+    env,
+  );
+  expect(res.status).toBe(502);
+  const html = await res.text();
+  expect(html).toContain("GITHUB_REPOSITORY_UNAVAILABLE");
+  expect(html).toContain("Contents → Read and write");
+  expect(html).not.toContain(token);
+  expect(html).not.toContain("secret-sentinel");
+  vi.unstubAllGlobals();
+});
+it("rejects a foreign origin and does not fall back from an invalid bearer token to a valid cookie", async () => {
+  const token = await signSession(env);
+  const fetcher = vi.fn();
+  vi.stubGlobal("fetch", fetcher);
+  const cases: Record<string, string>[] = [
+    { Origin: "https://evil.example", Cookie: "__Host-chess-session=" + token },
+    {
+      Authorization: "Bearer invalid",
+      Cookie: "__Host-chess-session=" + token,
+    },
+  ];
+  for (const headers of cases) {
+    const res = await worker.fetch(
+      new Request(env.API_URL + "/api/storage-status", { headers }),
+      env,
+    );
+    expect([401, 403]).toContain(res.status);
+  }
+  expect(fetcher).not.toHaveBeenCalled();
+  vi.unstubAllGlobals();
+});
+it("returns a machine-readable storage code for the authenticated progress API", async () => {
+  const token = await signSession(env);
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(async () =>
+      Response.json({ message: "Bad credentials" }, { status: 401 }),
+    ),
+  );
+  const res = await worker.fetch(
+    new Request(env.API_URL + "/api/progress", {
+      headers: { Authorization: "Bearer " + token },
+    }),
+    env,
+  );
+  expect(res.status).toBe(502);
+  expect(await res.json()).toMatchObject({ code: "GITHUB_TOKEN_INVALID" });
+  vi.unstubAllGlobals();
+});
