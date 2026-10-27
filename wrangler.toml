@@ -8,7 +8,7 @@ PROGRESS_OWNER = "Nickpavlenk0"
 PROGRESS_REPO = "chess-progress"
 OWNER_ID = "190060641"
 FRONTEND_URL = "https://nickpavlenk0.github.io/chess-studio/"
-API_URL = "https://chess-studio-api.YOUR-SUBDOMAIN.workers.dev"
+API_URL = "https://chess-studio-api.axilles161.workers.dev"
 # Set the public OAuth app client ID here after creating the app.
 GITHUB_CLIENT_ID = "REPLACE_WITH_OAUTH_CLIENT_ID"
 

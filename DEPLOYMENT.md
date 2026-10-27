@@ -64,7 +64,7 @@ npx wrangler login
 
 - Name: `Chess Studio`.
 - Homepage URL: `https://nickpavlenk0.github.io/chess-studio/`.
-- Authorization callback URL: `https://chess-studio-api.YOUR-SUBDOMAIN.workers.dev/auth/callback`.
+- Authorization callback URL: `https://chess-studio-api.axilles161.workers.dev/auth/callback`.
 
 В [wrangler.toml](wrangler.toml) заполните только **несекретные** настройки:
 
@@ -114,7 +114,7 @@ openssl rand -base64 48 | npx wrangler secret put SESSION_SECRET
 После deploy Worker скопируйте его URL в **Settings → Secrets and variables → Actions → Variables** публичного репозитория:
 
 ```text
-VITE_API_URL = https://chess-studio-api.YOUR-SUBDOMAIN.workers.dev
+VITE_API_URL = https://chess-studio-api.axilles161.workers.dev
 ```
 
 Это **Repository variable**, не секрет. Перезапустите Pages workflow: Vite получает адрес во время сборки. Локально можно создать `.env` по `.env.example`; в Git его не добавлять.

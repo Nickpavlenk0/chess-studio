@@ -26,22 +26,21 @@
 
 ## Репозитории и публикация
 
-Владелец создал public [`Nickpavlenk0/chess-studio`](https://github.com/Nickpavlenk0/chess-studio) и private `Nickpavlenk0/chess-progress` и открыл интеграции доступ. Проверены видимость и права записи обоих репозиториев. Подготовленный код передаётся в ветку `main`; GitHub Actions проверяет проект и публикует `dist` через Pages.
+Код находится в public [`Nickpavlenk0/chess-studio`](https://github.com/Nickpavlenk0/chess-studio), личный пустой журнал `progress.json` создан в private `Nickpavlenk0/chess-progress`. Проверены видимость и права записи обоих репозиториев.
 
-Целевой адрес: `https://nickpavlenk0.github.io/chess-studio/`. Текущий результат публикации следует проверять в [GitHub Actions](https://github.com/Nickpavlenk0/chess-studio/actions), затем непосредственно по адресу сайта. До подключения Worker сайт предоставляет учебные материалы и явно сообщает, что облачная синхронизация не настроена.
+Сайт опубликован: **https://nickpavlenk0.github.io/chess-studio/**. [Проверки и публикация в GitHub Actions](https://github.com/Nickpavlenk0/chess-studio/actions/runs/40485509191) завершились успешно. На опубликованном сайте проверены мобильная главная, доска диагностики, обновление hash-маршрута и отсутствие ошибок JavaScript. До подключения Worker сайт явно сообщает, что облачная синхронизация не настроена.
 
-Первоначально создание репозиториев из среды было отклонено (`403 Resource not accessible by integration`). Этот блокирующий шаг устранён владельцем; посторонние проекты пользователя не изменялись.
-
-Cloudflare пока не авторизован: `wrangler whoami` сообщил `You are not authenticated`. Worker собран и проверен в dry-run, но ещё не развёрнут. Секреты не включались в исходники.
+Владелец создал Worker **https://chess-studio-api.axilles161.workers.dev**. Его доступность проверена: сейчас он отвечает `Hello World!`, поэтому это пока заготовка, а не развёрнутый API Chess Studio. Публичный URL внесён в `wrangler.toml`, `.env.example` и инструкцию развёртывания. Сам Worker проекта проверен в dry-run.
 
 ## Что осталось владельцу
 
-1. Создать Cloudflare Worker `chess-studio-api` и сообщить его публичный HTTPS URL.
-2. Создать GitHub OAuth App с callback `<URL Worker>/auth/callback`; сообщить только публичный Client ID.
-3. Настроить `GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET` в Worker Secrets и доступ для развёртывания Cloudflare.
-4. После развёртывания Worker задать repository variable `VITE_API_URL`, повторно запустить Pages workflow и проверить реальное сохранение на Android.
+1. Создать GitHub OAuth App с Homepage URL `https://nickpavlenk0.github.io/chess-studio/` и Authorization callback URL `https://chess-studio-api.axilles161.workers.dev/auth/callback`; сообщить только публичный Client ID для конфигурации.
+2. Настроить `GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET` в Worker Secrets и доступ для развёртывания Cloudflare.
+3. Развернуть код Worker вместо Hello World, задать repository variable `VITE_API_URL` значением `https://chess-studio-api.axilles161.workers.dev`, повторно запустить Pages workflow и проверить реальное сохранение на Android.
 
-Точные команды, права и порядок проверки приведены в [DEPLOYMENT.md](../DEPLOYMENT.md). Живые OAuth и запись результатов ещё требуют проверки после настройки Cloudflare.
+Из текущей среды доступ к настройкам GitHub Actions Variables и Environments ограничен (`403 Resource not accessible by integration`). Значение `VITE_API_URL` понадобится добавить владельцу после развёртывания API. Доступ Cloudflare для развёртывания ещё не настроен. Секреты не включались в исходники.
+
+Точные команды, права и порядок проверки приведены в [DEPLOYMENT.md](../DEPLOYMENT.md). Живые OAuth и запись результатов ещё требуют проверки после настройки секретов и публикации API.
 
 ## Известные границы текущей версии
 
