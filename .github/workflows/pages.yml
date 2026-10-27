@@ -32,7 +32,7 @@ jobs:
         env:
           CI: "true"
       - run: npx wrangler deploy --dry-run --outdir /tmp/worker-build
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: failure()
         with:
           name: browser-test-failures
