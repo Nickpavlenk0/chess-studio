@@ -30,13 +30,12 @@
 
 Сайт опубликован: **https://nickpavlenk0.github.io/chess-studio/**. [Проверки и публикация в GitHub Actions](https://github.com/Nickpavlenk0/chess-studio/actions/runs/40485509191) завершились успешно. На опубликованном сайте проверены мобильная главная, доска диагностики, обновление hash-маршрута и отсутствие ошибок JavaScript. До подключения Worker сайт явно сообщает, что облачная синхронизация не настроена.
 
-Владелец создал Worker **https://chess-studio-api.axilles161.workers.dev**. Его доступность проверена: сейчас он отвечает `Hello World!`, поэтому это пока заготовка, а не развёрнутый API Chess Studio. Публичный URL внесён в `wrangler.toml`, `.env.example` и инструкцию развёртывания. Сам Worker проекта проверен в dry-run.
+Владелец создал Worker **https://chess-studio-api.axilles161.workers.dev**. Его доступность проверена: сейчас он отвечает `Hello World!`, поэтому это пока заготовка, а не развёрнутый API Chess Studio. Публичный URL внесён в `wrangler.toml`, `.env.example` и инструкцию развёртывания. Владелец создал GitHub OAuth App и сообщил публичный Client ID `Ov23liTTIYatIE0FoFbS`; он также записан в `wrangler.toml`. Сам Worker проекта проверен в dry-run.
 
 ## Что осталось владельцу
 
-1. Создать GitHub OAuth App с Homepage URL `https://nickpavlenk0.github.io/chess-studio/` и Authorization callback URL `https://chess-studio-api.axilles161.workers.dev/auth/callback`; сообщить только публичный Client ID для конфигурации.
-2. Настроить `GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET` в Worker Secrets и доступ для развёртывания Cloudflare.
-3. Развернуть код Worker вместо Hello World, задать repository variable `VITE_API_URL` значением `https://chess-studio-api.axilles161.workers.dev`, повторно запустить Pages workflow и проверить реальное сохранение на Android.
+1. Настроить `GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET` в Worker Secrets и доступ для развёртывания Cloudflare.
+2. Развернуть код Worker вместо Hello World, задать repository variable `VITE_API_URL` значением `https://chess-studio-api.axilles161.workers.dev`, повторно запустить Pages workflow и проверить реальное сохранение на Android.
 
 Из текущей среды доступ к настройкам GitHub Actions Variables и Environments ограничен (`403 Resource not accessible by integration`). Значение `VITE_API_URL` понадобится добавить владельцу после развёртывания API. Доступ Cloudflare для развёртывания ещё не настроен. Секреты не включались в исходники.
 
