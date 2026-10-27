@@ -24,26 +24,24 @@
 
 Скриншоты: [мобильная главная](screenshots/home-android.png), [настольная главная](screenshots/home-desktop.png). Они показывают проверяемое локальное приложение, а не опубликованный сайт.
 
-## Почему нет опубликованного URL и Pull Request
+## Репозитории и публикация
 
-GitHub CLI авторизован как `Nickpavlenk0`, однако требуемые репозитории не существовали. Попытки создать public `chess-studio` и private `chess-progress` через CLI/REST отклонены:
+Владелец создал public [`Nickpavlenk0/chess-studio`](https://github.com/Nickpavlenk0/chess-studio) и private `Nickpavlenk0/chess-progress` и открыл интеграции доступ. Проверены видимость и права записи обоих репозиториев. Подготовленный код передаётся в ветку `main`; GitHub Actions проверяет проект и публикует `dist` через Pages.
 
-```text
-403 Resource not accessible by integration (createRepository)
-```
+Целевой адрес: `https://nickpavlenk0.github.io/chess-studio/`. Текущий результат публикации следует проверять в [GitHub Actions](https://github.com/Nickpavlenk0/chess-studio/actions), затем непосредственно по адресу сайта. До подключения Worker сайт предоставляет учебные материалы и явно сообщает, что облачная синхронизация не настроена.
 
-Разрешения интеграции на существующие другие репозитории не позволяют создать эти новые. Финальная попытка `git push -u origin main` также вернула `Repository not found` для `Nickpavlenk0/chess-studio`. Посторонние проекты пользователя не изменялись. Код сохранён локально в Git; публикация в отсутствующий целевой репозиторий и PR невозможны с текущим доступом.
+Первоначально создание репозиториев из среды было отклонено (`403 Resource not accessible by integration`). Этот блокирующий шаг устранён владельцем; посторонние проекты пользователя не изменялись.
 
-`wrangler whoami` сообщил `You are not authenticated`. В среде нет настроенных Cloudflare credentials или GitHub OAuth App для этой академии. Worker собран и проверен в dry-run, но не развёрнут. Секреты не создавались и не включались в исходники.
+Cloudflare пока не авторизован: `wrangler whoami` сообщил `You are not authenticated`. Worker собран и проверен в dry-run, но ещё не развёрнут. Секреты не включались в исходники.
 
-## Что должен сделать владелец
+## Что осталось владельцу
 
-1. Создать `Nickpavlenk0/chess-studio` (public) и `Nickpavlenk0/chess-progress` (private); предоставить интеграции доступ к новым репозиториям либо отправить подготовленный Git-коммит самостоятельно.
-2. Отправить `main` в публичный репозиторий и включить Pages → GitHub Actions.
-3. Авторизовать Cloudflare, создать OAuth App и fine-grained GitHub token только для `chess-progress`, заполнить публичные URL/Client ID и Worker Secrets.
-4. Развернуть Worker, задать repository variable `VITE_API_URL`, повторно запустить Pages workflow и проверить реальное сохранение на Android.
+1. Создать Cloudflare Worker `chess-studio-api` и сообщить его публичный HTTPS URL.
+2. Создать GitHub OAuth App с callback `<URL Worker>/auth/callback`; сообщить только публичный Client ID.
+3. Настроить `GITHUB_TOKEN`, `GITHUB_CLIENT_SECRET`, `SESSION_SECRET` в Worker Secrets и доступ для развёртывания Cloudflare.
+4. После развёртывания Worker задать repository variable `VITE_API_URL`, повторно запустить Pages workflow и проверить реальное сохранение на Android.
 
-Точные команды, права, callback URL и порядок проверки приведены в [DEPLOYMENT.md](../DEPLOYMENT.md). После успешного Pages deploy ожидается `https://nickpavlenk0.github.io/chess-studio/`; сейчас это только целевой адрес.
+Точные команды, права и порядок проверки приведены в [DEPLOYMENT.md](../DEPLOYMENT.md). Живые OAuth и запись результатов ещё требуют проверки после настройки Cloudflare.
 
 ## Известные границы текущей версии
 
