@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-07-0039t",
+  "version": 1,
+  "title": "Активная защита",
+  "instruction": "Найдите активный ответ на угрозы белых и завершите вариант.",
+  "fen": "1r5r/p3kp2/4p2p/4P3/R4Pp1/6P1/P1P4P/4K2R b K - 2 25",
+  "side": "b",
+  "category": "Защита от угрозы",
+  "difficulty": "Базовая",
+  "solutions": [["b8b1", "e1f2", "b1h1", "a4a7", "e7f8"]],
+  "hint": "Вместо пассивной защиты ищите шах с нападением на ладью.",
+  "explanation": "Белая ладья a4 угрожает взять a7 с шахом. Чёрные опережают её ходом Rb1+ и после ухода короля забирают ладью h1. В показанной линии белые отвечают Rxa7+; точный Kf8 уводит короля с линии атаки и сохраняет выигрыш материала.",
+  "source": "https://lichess.org/training/0039T · Lichess database, CC0 · rating at import 1121",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["b8b1"],
+    "score": "+673"
+  }
+}

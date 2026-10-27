@@ -1,0 +1,161 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,79}$"
+    },
+    "version": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "title": {
+      "type": "string"
+    },
+    "subtitle": {
+      "type": "string"
+    },
+    "side": {
+      "type": "string",
+      "enum": [
+        "w",
+        "b"
+      ]
+    },
+    "eco": {
+      "type": "string"
+    },
+    "level": {
+      "type": "string"
+    },
+    "history": {
+      "type": "string"
+    },
+    "idea": {
+      "type": "string"
+    },
+    "structure": {
+      "type": "string"
+    },
+    "plans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "opponentPlans": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "mistakes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "traps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "after": {
+      "type": "string"
+    },
+    "root": {
+      "$ref": "#/$defs/__schema0"
+    },
+    "practice": {
+      "minItems": 2,
+      "type": "array",
+      "items": {
+        "type": "string",
+        "pattern": "^[a-h][1-8][a-h][1-8][qrbn]?$"
+      }
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "version",
+    "title",
+    "subtitle",
+    "side",
+    "eco",
+    "level",
+    "history",
+    "idea",
+    "structure",
+    "plans",
+    "opponentPlans",
+    "mistakes",
+    "traps",
+    "after",
+    "root",
+    "practice"
+  ],
+  "additionalProperties": false,
+  "$defs": {
+    "__schema0": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-z0-9][a-z0-9-]{1,79}$"
+        },
+        "move": {
+          "type": "string",
+          "pattern": "^[a-h][1-8][a-h][1-8][qrbn]?$"
+        },
+        "comment": {
+          "type": "string"
+        },
+        "arrows": {
+          "type": "array",
+          "items": {
+            "type": "array",
+            "prefixItems": [
+              {
+                "type": "string",
+                "pattern": "^[a-h][1-8]$"
+              },
+              {
+                "type": "string",
+                "pattern": "^[a-h][1-8]$"
+              }
+            ],
+            "items": false,
+            "minItems": 2,
+            "maxItems": 2
+          }
+        },
+        "highlights": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-h][1-8]$"
+          }
+        },
+        "children": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/__schema0"
+          }
+        }
+      },
+      "required": [
+        "id",
+        "children"
+      ],
+      "additionalProperties": false
+    }
+  }
+}

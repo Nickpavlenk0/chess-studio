@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-03-001wr",
+  "version": 1,
+  "title": "Две цели ферзя",
+  "instruction": "Найдите ход, который создаёт две угрозы.",
+  "fen": "r4rk1/p3ppbp/Pp1q1np1/3PpbB1/2B5/2N2P2/1PPQ2PP/3RR1K1 b - - 0 18",
+  "side": "b",
+  "category": "Двойной удар",
+  "difficulty": "Базовая",
+  "solutions": [["d6c5", "g1h1", "c5c4"]],
+  "hint": "Совместите шах с нападением на незащищённого слона.",
+  "explanation": "Qc5+ даёт шах по диагонали c5–g1 и одновременно нападает на слона c4 по линии c. После Kh1 чёрные забирают слона Qxc4.",
+  "source": "https://lichess.org/training/001wr · Lichess database, CC0 · rating at import 989",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["d6c5"],
+    "score": "+564"
+  }
+}

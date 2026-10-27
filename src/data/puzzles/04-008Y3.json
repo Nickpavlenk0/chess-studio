@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-04-008y3",
+  "version": 1,
+  "title": "Освободить линию",
+  "instruction": "Выиграйте материал, действуя с темпом.",
+  "fen": "r5k1/1p1r1pp1/p3pnp1/2qN4/8/1Q5P/PP3PP1/3RR1K1 w - - 0 25",
+  "side": "w",
+  "category": "Вскрытое нападение",
+  "difficulty": "Базовая",
+  "solutions": [["d5f6", "g7f6", "d1d7"]],
+  "hint": "Уход коня может открыть линию для ладьи.",
+  "explanation": "Nxf6+ убирает чёрного коня и освобождает линию d для белой ладьи. После вынужденного gxf6 ладья забирает d7. Шах не даёт чёрным времени спасти ладью.",
+  "source": "https://lichess.org/training/008Y3 · Lichess database, CC0 · rating at import 1054",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["d5f6"],
+    "score": "+758"
+  }
+}

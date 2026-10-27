@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-12-003mh",
+  "version": 1,
+  "title": "Рассчитайте до конца",
+  "instruction": "Найдите форсированный вариант с временной жертвой ферзя.",
+  "fen": "4rk1r/1pp2p2/p2p3p/3N4/3P2q1/8/PPP5/1K2Q1NR w - - 2 24",
+  "side": "w",
+  "category": "Форсированный расчёт",
+  "difficulty": "Выше средней",
+  "solutions": [["e1e8", "f8e8", "d5f6", "e8e7", "f6g4"]],
+  "hint": "Сначала завлеките короля на e8, затем ищите вилку.",
+  "explanation": "Qxe8+ заставляет короля взять ферзя: Kxe8. Теперь Nf6+ даёт вилку королю e8 и ферзю g4. После ухода короля Nxg4 возвращает ферзя; белые выиграли ладью e8 и сохранили материальное преимущество.",
+  "source": "https://lichess.org/training/003mh · Lichess database, CC0 · rating at import 1325",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["e1e8"],
+    "score": "+773"
+  }
+}

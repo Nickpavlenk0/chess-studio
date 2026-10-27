@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-11-00htd",
+  "version": 1,
+  "title": "Не торопитесь менять ферзей",
+  "instruction": "Найдите промежуточный ход перед взятием.",
+  "fen": "rnbqk2r/1p3ppp/p4b2/2PQ4/8/2N2N2/PP2PPPP/R3KB1R b KQkq - 0 9",
+  "side": "b",
+  "category": "Промежуточный ход",
+  "difficulty": "Базовая",
+  "solutions": [["f6c3", "b2c3", "d8d5"]],
+  "hint": "Сначала проверьте взятие с шахом.",
+  "explanation": "Сначала Bxc3+! Слон берёт коня с шахом, а не спешит разменять ферзей. После bxc3 чёрные забирают ферзя на d5. Возможная защита Qd2 также не спасает: ...Bxd2+ выигрывает ферзя.",
+  "source": "https://lichess.org/training/00Htd · Lichess database, CC0 · rating at import 952",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["f6c3"],
+    "score": "+916"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-01-000ro",
+  "version": 1,
+  "title": "Шах с двойной угрозой",
+  "instruction": "Найдите форсированный способ выиграть материал.",
+  "fen": "3R4/8/8/KB2b3/1p6/1P2k3/3p4/8 b - - 0 58",
+  "side": "b",
+  "category": "Вилка",
+  "difficulty": "Базовая",
+  "solutions": [["e5c7", "a5b4", "c7d8"]],
+  "hint": "Слон может одновременно атаковать короля и ладью.",
+  "explanation": "Слон идёт на c7 с шахом и одновременно нападает на ладью d8. Белые обязаны отвечать на шах; после Kxb4 чёрные забирают ладью Bxd8.",
+  "source": "https://lichess.org/training/000rO · Lichess database, CC0 · rating at import 1110",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["e5c7"],
+    "score": "+906"
+  }
+}

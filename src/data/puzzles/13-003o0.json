@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-13-003o0",
+  "version": 1,
+  "title": "Цена задержки рокировки",
+  "instruction": "Используйте положение короля и слона белых.",
+  "fen": "r1bqk2r/pp1nbppp/3p4/1B1p4/3P1B2/5N2/PPP2PPP/R2QK2R b KQkq - 3 9",
+  "side": "b",
+  "category": "Тактика в дебюте",
+  "difficulty": "Базовая",
+  "solutions": [["d8a5", "d1d2", "a5b5"]],
+  "hint": "Шах ферзём может совместить две угрозы.",
+  "explanation": "Qa5+ атакует короля по диагонали a5–e1 и одновременно слона b5 по пятой горизонтали. После защиты Qd2 чёрные берут слона Qxb5. Шах не даёт белым времени спасти фигуру.",
+  "source": "https://lichess.org/training/003o0 · Lichess database, CC0 · rating at import 1001",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["d8a5"],
+    "score": "+641"
+  }
+}

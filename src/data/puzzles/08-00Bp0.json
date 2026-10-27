@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-08-00bp0",
+  "version": 1,
+  "title": "Убрать защитника",
+  "instruction": "Выиграйте фигуру, выбрав верный порядок взятий.",
+  "fen": "1r2kr2/pp3p1p/2b1p3/4N3/2P1n3/1N1B4/P3KP1P/6R1 w - - 5 22",
+  "side": "w",
+  "category": "Выигрыш материала",
+  "difficulty": "Средняя",
+  "solutions": [["e5c6", "b7c6", "d3e4"]],
+  "hint": "Кто защищает коня e4? Сначала устраните эту фигуру.",
+  "explanation": "Коня e4 защищает слон c6. Поэтому сначала Nxc6: белый конь одновременно угрожает ладье b8. После bxc6 слон d3 забирает теперь незащищённого коня e4. Прямое Bxe4 позволило бы ...Bxe4.",
+  "source": "https://lichess.org/training/00Bp0 · Lichess database, CC0 · rating at import 1229",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["e5c6"],
+    "score": "+171"
+  }
+}

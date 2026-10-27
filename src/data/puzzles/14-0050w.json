@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-14-0050w",
+  "version": 1,
+  "title": "Полезный размен",
+  "instruction": "Оцените размен ладей и найдите дальнейший выигрыш.",
+  "fen": "5rk1/1p2p2p/p2p4/2pPb2R/2P1P3/1P1BKPrR/8/8 w - - 5 31",
+  "side": "w",
+  "category": "Выгодный размен",
+  "difficulty": "Базовая",
+  "solutions": [["h3g3", "e5g3", "h5g5", "g8f7", "g5g3"]],
+  "hint": "После размена ищите шах оставшейся ладьёй с нападением на слона.",
+  "explanation": "Rxg3+ Bxg3 — это не просто размен ладей. Белая ладья h5 получает возможность Rg5+ с двойным ударом на короля g8 и слона g3. После Kf7 следует Rxg3: итог — выигрыш слона. Перед разменом важно увидеть позицию после него.",
+  "source": "https://lichess.org/training/0050w · Lichess database, CC0 · rating at import 1131",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["h3g3"],
+    "score": "+661"
+  }
+}

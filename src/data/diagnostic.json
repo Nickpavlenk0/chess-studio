@@ -1,0 +1,22 @@
+{
+  "schemaVersion": 1,
+  "id": "initial-diagnostic",
+  "title": "Начальная диагностика",
+  "taskIds": [
+    "diag-01-000ro",
+    "diag-02-003s3",
+    "diag-03-001wr",
+    "diag-04-008y3",
+    "diag-05-000pa",
+    "diag-06-000zo",
+    "diag-07-0039t",
+    "diag-08-00bp0",
+    "diag-09-002mm",
+    "diag-10-001w5",
+    "diag-11-00htd",
+    "diag-12-003mh",
+    "diag-13-003o0",
+    "diag-14-0050w",
+    "diag-15-00mwz"
+  ]
+}

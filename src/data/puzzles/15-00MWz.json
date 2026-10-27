@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-15-00mwz",
+  "version": 1,
+  "title": "Создать проходную",
+  "instruction": "Найдите простой план выигрыша в окончании.",
+  "fen": "8/8/2B5/4pK2/3k1pPp/7P/8/6n1 w - - 4 58",
+  "side": "w",
+  "category": "Позиционное решение",
+  "difficulty": "Базовая",
+  "solutions": [["g4g5", "g1e2", "g5g6"]],
+  "hint": "Какая пешка может стать проходной и отвлечь коня?",
+  "explanation": "Продвижение g5 создаёт проходную пешку: чёрная пешка f4 уже не может её остановить. Затем g6, а белый король f5 поддерживает путь к g7. Это соревнование проходных: лишние ходы слоном или королём позволили бы чёрным первыми продвинуть пешку f.",
+  "source": "https://lichess.org/training/00MWz · Lichess database, CC0 · rating at import 933",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["g4g5"],
+    "score": "+642"
+  }
+}

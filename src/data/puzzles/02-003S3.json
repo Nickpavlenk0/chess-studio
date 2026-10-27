@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-02-003s3",
+  "version": 1,
+  "title": "Связанная пешка",
+  "instruction": "Используйте положение чёрного короля.",
+  "fen": "1r3k1r/pNqnppb1/6pn/2p3Np/7P/2P2Q2/PP3PP1/R1B1K2R w KQ - 3 16",
+  "side": "w",
+  "category": "Связка",
+  "difficulty": "Выше средней",
+  "solutions": [["g5e6", "f8g8", "e6c7"]],
+  "hint": "Посмотрите, какая пешка не может уйти с линии f.",
+  "explanation": "Пешка f7 связана ферзём f3 с королём f8. Поэтому на Ne6+ нельзя ответить fxe6: это откроет шах по линии f. Конь даёт шах и нападает на ферзя c7; после Kg8 следует Nxc7.",
+  "source": "https://lichess.org/training/003S3 · Lichess database, CC0 · rating at import 1336",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["g5e6"],
+    "score": "+887"
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-09-002mm",
+  "version": 1,
+  "title": "Увести короля",
+  "instruction": "Найдите форсированный мат в два хода.",
+  "fen": "rn1qrk2/ppp3pQ/3p1pP1/3Pp3/2P1P3/8/PP3PP1/R1B1K3 w Q - 3 17",
+  "side": "w",
+  "category": "Отвлечение защитника",
+  "difficulty": "Базовая",
+  "solutions": [["h7h8", "f8e7", "h8g7"]],
+  "hint": "Король f8 пока контролирует важное поле g7.",
+  "explanation": "Qh8+ вынуждает короля уйти с f8 на e7. Он перестаёт контролировать g7, и теперь Qxg7# завершает атаку. Пешка g6 поддерживает ферзя на h7 до начала комбинации.",
+  "source": "https://lichess.org/training/002Mm · Lichess database, CC0 · rating at import 927",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["h7h8"],
+    "score": "#+2"
+  }
+}

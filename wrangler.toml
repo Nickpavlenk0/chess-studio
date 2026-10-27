@@ -1,0 +1,20 @@
+name = "chess-studio-api"
+main = "worker/index.ts"
+compatibility_date = "2026-10-01"
+workers_dev = true
+
+[vars]
+PROGRESS_OWNER = "Nickpavlenk0"
+PROGRESS_REPO = "chess-progress"
+OWNER_ID = "190060641"
+FRONTEND_URL = "https://nickpavlenk0.github.io/chess-studio/"
+API_URL = "https://chess-studio-api.YOUR-SUBDOMAIN.workers.dev"
+# Set the public OAuth app client ID here after creating the app.
+GITHUB_CLIENT_ID = "REPLACE_WITH_OAUTH_CLIENT_ID"
+
+[[ratelimits]]
+name = "RATE_LIMITER"
+namespace_id = "1001"
+simple = { limit = 60, period = 60 }
+# Secrets (wrangler secret put): GITHUB_TOKEN, GITHUB_CLIENT_SECRET, SESSION_SECRET
+# No KV, D1, Durable Object or persistent Cloudflare database.

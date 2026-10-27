@@ -1,0 +1,905 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-10-27",
+  "puzzles": [
+    {
+      "id": "diag-01-000ro",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "3R4/8/8/KB2b3/1p6/1P2k3/3p4/8 b - - 0 58",
+          "accepted": "e5c7",
+          "best": "e5c7",
+          "score": "+864",
+          "top": [
+            {
+              "uci": "e5c7",
+              "score": "+778"
+            },
+            {
+              "uci": "e5c3",
+              "score": "-627"
+            },
+            {
+              "uci": "e5d4",
+              "score": "-644"
+            },
+            {
+              "uci": "d2d1q",
+              "score": "-664"
+            }
+          ]
+        },
+        {
+          "fen": "3R4/2b5/8/1B6/1K6/1P2k3/3p4/8 b - - 0 59",
+          "accepted": "c7d8",
+          "best": "c7d8",
+          "score": "+1075",
+          "top": [
+            {
+              "uci": "c7d8",
+              "score": "+1064"
+            },
+            {
+              "uci": "c7e5",
+              "score": "-677"
+            },
+            {
+              "uci": "c7g3",
+              "score": "-677"
+            },
+            {
+              "uci": "c7f4",
+              "score": "-677"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-02-003s3",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "1r3k1r/pNqnppb1/6pn/2p3Np/7P/2P2Q2/PP3PP1/R1B1K2R w KQ - 3 16",
+          "accepted": "g5e6",
+          "best": "g5e6",
+          "score": "+904",
+          "top": [
+            {
+              "uci": "g5e6",
+              "score": "+904"
+            },
+            {
+              "uci": "c1f4",
+              "score": "-394"
+            },
+            {
+              "uci": "b7d8",
+              "score": "-400"
+            },
+            {
+              "uci": "b7a5",
+              "score": "-545"
+            }
+          ]
+        },
+        {
+          "fen": "1r4kr/pNqnppb1/4N1pn/2p4p/7P/2P2Q2/PP3PP1/R1B1K2R w KQ - 5 17",
+          "accepted": "e6c7",
+          "best": "e6c7",
+          "score": "+896",
+          "top": [
+            {
+              "uci": "e6c7",
+              "score": "+890"
+            },
+            {
+              "uci": "e6d8",
+              "score": "-472"
+            },
+            {
+              "uci": "b7c5",
+              "score": "-481"
+            },
+            {
+              "uci": "c1f4",
+              "score": "-568"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-03-001wr",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "r4rk1/p3ppbp/Pp1q1np1/3PpbB1/2B5/2N2P2/1PPQ2PP/3RR1K1 b - - 0 18",
+          "accepted": "d6c5",
+          "best": "d6c5",
+          "score": "+575",
+          "top": [
+            {
+              "uci": "d6c5",
+              "score": "+581"
+            },
+            {
+              "uci": "f5c2",
+              "score": "-6"
+            },
+            {
+              "uci": "f8d8",
+              "score": "-101"
+            },
+            {
+              "uci": "f5d7",
+              "score": "-112"
+            }
+          ]
+        },
+        {
+          "fen": "r4rk1/p3ppbp/Pp3np1/2qPpbB1/2B5/2N2P2/1PPQ2PP/3RR2K b - - 2 19",
+          "accepted": "c5c4",
+          "best": "c5c4",
+          "score": "+599",
+          "top": [
+            {
+              "uci": "c5c4",
+              "score": "+585"
+            },
+            {
+              "uci": "f5c2",
+              "score": "+27"
+            },
+            {
+              "uci": "h7h6",
+              "score": "-37"
+            },
+            {
+              "uci": "e7e6",
+              "score": "-171"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-04-008y3",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "r5k1/1p1r1pp1/p3pnp1/2qN4/8/1Q5P/PP3PP1/3RR1K1 w - - 0 25",
+          "accepted": "d5f6",
+          "best": "d5f6",
+          "score": "+770",
+          "top": [
+            {
+              "uci": "d5f6",
+              "score": "+748"
+            },
+            {
+              "uci": "d5b6",
+              "score": "-104"
+            },
+            {
+              "uci": "d5e3",
+              "score": "-143"
+            },
+            {
+              "uci": "d5c3",
+              "score": "-183"
+            }
+          ]
+        },
+        {
+          "fen": "r5k1/1p1r1p2/p3ppp1/2q5/8/1Q5P/PP3PP1/3RR1K1 w - - 0 26",
+          "accepted": "d1d7",
+          "best": "d1d7",
+          "score": "+767",
+          "top": [
+            {
+              "uci": "d1d7",
+              "score": "+758"
+            },
+            {
+              "uci": "b3f3",
+              "score": "-190"
+            },
+            {
+              "uci": "g2g4",
+              "score": "-244"
+            },
+            {
+              "uci": "e1f1",
+              "score": "-280"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-05-000pa",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "5rk1/5pp1/7p/3p4/1KpPn3/4PPP1/1P2N1P1/r4R1R b - - 0 24",
+          "accepted": "f8b8",
+          "best": "f8b8",
+          "score": "#+1",
+          "top": [
+            {
+              "uci": "f8b8",
+              "score": "#+1"
+            },
+            {
+              "uci": "a1a2",
+              "score": "0"
+            },
+            {
+              "uci": "a1f1",
+              "score": "-3"
+            },
+            {
+              "uci": "a1a8",
+              "score": "-465"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": true
+    },
+    {
+      "id": "diag-06-000zo",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "4r3/1k6/pp3P2/1b5p/3R1p2/P1R2P2/1P4PP/6K1 b - - 0 35",
+          "accepted": "e8e1",
+          "best": "e8e1",
+          "score": "#+2",
+          "top": [
+            {
+              "uci": "e8e1",
+              "score": "#+2"
+            },
+            {
+              "uci": "h5h4",
+              "score": "-788"
+            },
+            {
+              "uci": "b5c6",
+              "score": "-817"
+            },
+            {
+              "uci": "e8f8",
+              "score": "-817"
+            }
+          ]
+        },
+        {
+          "fen": "8/1k6/pp3P2/1b5p/3R1p2/P1R2P2/1P3KPP/4r3 b - - 2 36",
+          "accepted": "e1f1",
+          "best": "e1f1",
+          "score": "#+1",
+          "top": [
+            {
+              "uci": "e1f1",
+              "score": "#+1"
+            },
+            {
+              "uci": "e1e2",
+              "score": "-360"
+            },
+            {
+              "uci": "e1e8",
+              "score": "-868"
+            },
+            {
+              "uci": "e1e6",
+              "score": "-914"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": true
+    },
+    {
+      "id": "diag-07-0039t",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "1r5r/p3kp2/4p2p/4P3/R4Pp1/6P1/P1P4P/4K2R b K - 2 25",
+          "accepted": "b8b1",
+          "best": "b8b1",
+          "score": "+720",
+          "top": [
+            {
+              "uci": "b8b1",
+              "score": "+661"
+            },
+            {
+              "uci": "b8b7",
+              "score": "-35"
+            },
+            {
+              "uci": "h8d8",
+              "score": "-45"
+            },
+            {
+              "uci": "a7a5",
+              "score": "-58"
+            }
+          ]
+        },
+        {
+          "fen": "7r/p3kp2/4p2p/4P3/R4Pp1/6P1/P1P2K1P/1r5R b - - 4 26",
+          "accepted": "b1h1",
+          "best": "b1h1",
+          "score": "+732",
+          "top": [
+            {
+              "uci": "b1h1",
+              "score": "+742"
+            },
+            {
+              "uci": "b1b7",
+              "score": "-103"
+            },
+            {
+              "uci": "h8b8",
+              "score": "-151"
+            },
+            {
+              "uci": "b1b2",
+              "score": "-182"
+            }
+          ]
+        },
+        {
+          "fen": "7r/R3kp2/4p2p/4P3/5Pp1/6P1/P1P2K1P/7r b - - 0 27",
+          "accepted": "e7f8",
+          "best": "e7f8",
+          "score": "+761",
+          "top": [
+            {
+              "uci": "e7f8",
+              "score": "+751"
+            },
+            {
+              "uci": "e7e8",
+              "score": "+6"
+            },
+            {
+              "uci": "e7d8",
+              "score": "0"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-08-00bp0",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "1r2kr2/pp3p1p/2b1p3/4N3/2P1n3/1N1B4/P3KP1P/6R1 w - - 5 22",
+          "accepted": "e5c6",
+          "best": "e5c6",
+          "score": "+156",
+          "top": [
+            {
+              "uci": "e5c6",
+              "score": "+156"
+            },
+            {
+              "uci": "g1g7",
+              "score": "-438"
+            },
+            {
+              "uci": "b3d4",
+              "score": "-454"
+            },
+            {
+              "uci": "d3e4",
+              "score": "-454"
+            }
+          ]
+        },
+        {
+          "fen": "1r2kr2/p4p1p/2p1p3/8/2P1n3/1N1B4/P3KP1P/6R1 w - - 0 23",
+          "accepted": "d3e4",
+          "best": "d3e4",
+          "score": "+151",
+          "top": [
+            {
+              "uci": "d3e4",
+              "score": "+141"
+            },
+            {
+              "uci": "h2h3",
+              "score": "-491"
+            },
+            {
+              "uci": "e2e3",
+              "score": "-502"
+            },
+            {
+              "uci": "h2h4",
+              "score": "-504"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-09-002mm",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "rn1qrk2/ppp3pQ/3p1pP1/3Pp3/2P1P3/8/PP3PP1/R1B1K3 w Q - 3 17",
+          "accepted": "h7h8",
+          "best": "h7h8",
+          "score": "#+2",
+          "top": [
+            {
+              "uci": "h7h8",
+              "score": "#+2"
+            },
+            {
+              "uci": "c1h6",
+              "score": "+112"
+            },
+            {
+              "uci": "f2f4",
+              "score": "+93"
+            },
+            {
+              "uci": "a2a4",
+              "score": "+77"
+            }
+          ]
+        },
+        {
+          "fen": "rn1qr2Q/ppp1k1p1/3p1pP1/3Pp3/2P1P3/8/PP3PP1/R1B1K3 w Q - 5 18",
+          "accepted": "h8g7",
+          "best": "h8g7",
+          "score": "#+1",
+          "top": [
+            {
+              "uci": "h8g7",
+              "score": "#+1"
+            },
+            {
+              "uci": "h8h7",
+              "score": "-571"
+            },
+            {
+              "uci": "h8h3",
+              "score": "-572"
+            },
+            {
+              "uci": "h8h2",
+              "score": "-650"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": true
+    },
+    {
+      "id": "diag-10-001w5",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "1rb3k1/q4rP1/4p2p/3p3p/3P1P2/2P5/2QK3P/3R2R1 w - - 1 30",
+          "accepted": "c2h7",
+          "best": "c2h7",
+          "score": "#+2",
+          "top": [
+            {
+              "uci": "c2h7",
+              "score": "#+2"
+            },
+            {
+              "uci": "c2g6",
+              "score": "-442"
+            },
+            {
+              "uci": "d2e3",
+              "score": "-603"
+            },
+            {
+              "uci": "d1e1",
+              "score": "-609"
+            }
+          ]
+        },
+        {
+          "fen": "1rb5/q4rPk/4p2p/3p3p/3P1P2/2P5/3K3P/3R2R1 w - - 0 31",
+          "accepted": "g7g8q",
+          "best": "g7g8q",
+          "score": "#+1",
+          "top": [
+            {
+              "uci": "g7g8q",
+              "score": "#+1"
+            },
+            {
+              "uci": "g7g8b",
+              "score": "-1195"
+            },
+            {
+              "uci": "d1a1",
+              "score": "-1228"
+            },
+            {
+              "uci": "f4f5",
+              "score": "-1554"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": true
+    },
+    {
+      "id": "diag-11-00htd",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "rnbqk2r/1p3ppp/p4b2/2PQ4/8/2N2N2/PP2PPPP/R3KB1R b KQkq - 0 9",
+          "accepted": "f6c3",
+          "best": "f6c3",
+          "score": "+924",
+          "top": [
+            {
+              "uci": "f6c3",
+              "score": "+922"
+            },
+            {
+              "uci": "e8g8",
+              "score": "-89"
+            },
+            {
+              "uci": "d8a5",
+              "score": "-128"
+            },
+            {
+              "uci": "b8d7",
+              "score": "-171"
+            }
+          ]
+        },
+        {
+          "fen": "rnbqk2r/1p3ppp/p7/2PQ4/8/2P2N2/P3PPPP/R3KB1R b KQkq - 0 10",
+          "accepted": "d8d5",
+          "best": "d8d5",
+          "score": "+931",
+          "top": [
+            {
+              "uci": "d8d5",
+              "score": "+935"
+            },
+            {
+              "uci": "b8d7",
+              "score": "-133"
+            },
+            {
+              "uci": "d8e7",
+              "score": "-159"
+            },
+            {
+              "uci": "d8a5",
+              "score": "-163"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-12-003mh",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "4rk1r/1pp2p2/p2p3p/3N4/3P2q1/8/PPP5/1K2Q1NR w - - 2 24",
+          "accepted": "e1e8",
+          "best": "e1e8",
+          "score": "+773",
+          "top": [
+            {
+              "uci": "e1e8",
+              "score": "+768"
+            },
+            {
+              "uci": "e1c1",
+              "score": "-168"
+            },
+            {
+              "uci": "e1f1",
+              "score": "-614"
+            },
+            {
+              "uci": "d5e3",
+              "score": "-640"
+            }
+          ]
+        },
+        {
+          "fen": "4k2r/1pp2p2/p2p3p/3N4/3P2q1/8/PPP5/1K4NR w - - 0 25",
+          "accepted": "d5f6",
+          "best": "d5f6",
+          "score": "+760",
+          "top": [
+            {
+              "uci": "d5f6",
+              "score": "+742"
+            },
+            {
+              "uci": "g1h3",
+              "score": "-843"
+            },
+            {
+              "uci": "a2a3",
+              "score": "-909"
+            },
+            {
+              "uci": "g1e2",
+              "score": "-910"
+            }
+          ]
+        },
+        {
+          "fen": "7r/1pp1kp2/p2p1N1p/8/3P2q1/8/PPP5/1K4NR w - - 2 26",
+          "accepted": "f6g4",
+          "best": "f6g4",
+          "score": "+781",
+          "top": [
+            {
+              "uci": "f6g4",
+              "score": "+771"
+            },
+            {
+              "uci": "g1h3",
+              "score": "-933"
+            },
+            {
+              "uci": "g1e2",
+              "score": "-949"
+            },
+            {
+              "uci": "f6d5",
+              "score": "-953"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-13-003o0",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "r1bqk2r/pp1nbppp/3p4/1B1p4/3P1B2/5N2/PPP2PPP/R2QK2R b KQkq - 3 9",
+          "accepted": "d8a5",
+          "best": "d8a5",
+          "score": "+662",
+          "top": [
+            {
+              "uci": "d8a5",
+              "score": "+655"
+            },
+            {
+              "uci": "e8g8",
+              "score": "-65"
+            },
+            {
+              "uci": "a7a6",
+              "score": "-77"
+            },
+            {
+              "uci": "h7h6",
+              "score": "-79"
+            }
+          ]
+        },
+        {
+          "fen": "r1b1k2r/pp1nbppp/3p4/qB1p4/3P1B2/5N2/PPPQ1PPP/R3K2R b KQkq - 5 10",
+          "accepted": "a5b5",
+          "best": "a5b5",
+          "score": "+682",
+          "top": [
+            {
+              "uci": "a5b5",
+              "score": "+688"
+            },
+            {
+              "uci": "a5d8",
+              "score": "-88"
+            },
+            {
+              "uci": "a5d2",
+              "score": "-99"
+            },
+            {
+              "uci": "a5c7",
+              "score": "-102"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-14-0050w",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "5rk1/1p2p2p/p2p4/2pPb2R/2P1P3/1P1BKPrR/8/8 w - - 5 31",
+          "accepted": "h3g3",
+          "best": "h3g3",
+          "score": "+650",
+          "top": [
+            {
+              "uci": "h3g3",
+              "score": "+644"
+            },
+            {
+              "uci": "d3e2",
+              "score": "-201"
+            },
+            {
+              "uci": "e3d2",
+              "score": "-504"
+            },
+            {
+              "uci": "e3e2",
+              "score": "-517"
+            }
+          ]
+        },
+        {
+          "fen": "5rk1/1p2p2p/p2p4/2pP3R/2P1P3/1P1BKPb1/8/8 w - - 0 32",
+          "accepted": "h5g5",
+          "best": "h5g5",
+          "score": "+635",
+          "top": [
+            {
+              "uci": "h5g5",
+              "score": "+642"
+            },
+            {
+              "uci": "e4e5",
+              "score": "-119"
+            },
+            {
+              "uci": "h5h1",
+              "score": "-126"
+            },
+            {
+              "uci": "h5h3",
+              "score": "-126"
+            }
+          ]
+        },
+        {
+          "fen": "5r2/1p2pk1p/p2p4/2pP2R1/2P1P3/1P1BKPb1/8/8 w - - 2 33",
+          "accepted": "g5g3",
+          "best": "g5g3",
+          "score": "+632",
+          "top": [
+            {
+              "uci": "g5g3",
+              "score": "+645"
+            },
+            {
+              "uci": "f3f4",
+              "score": "0"
+            },
+            {
+              "uci": "b3b4",
+              "score": "-16"
+            },
+            {
+              "uci": "g5f5",
+              "score": "-27"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    },
+    {
+      "id": "diag-15-00mwz",
+      "engine": "Stockfish 19",
+      "depth": 20,
+      "validFen": true,
+      "steps": [
+        {
+          "fen": "8/8/2B5/4pK2/3k1pPp/7P/8/6n1 w - - 4 58",
+          "accepted": "g4g5",
+          "best": "g4g5",
+          "score": "+666",
+          "top": [
+            {
+              "uci": "g4g5",
+              "score": "+581"
+            },
+            {
+              "uci": "c6b5",
+              "score": "-513"
+            },
+            {
+              "uci": "c6g2",
+              "score": "-689"
+            },
+            {
+              "uci": "f5e6",
+              "score": "-737"
+            }
+          ]
+        },
+        {
+          "fen": "8/8/2B5/4pKP1/3k1p1p/7P/4n3/8 w - - 1 59",
+          "accepted": "g5g6",
+          "best": "g5g6",
+          "score": "+730",
+          "top": [
+            {
+              "uci": "g5g6",
+              "score": "+700"
+            },
+            {
+              "uci": "f5g4",
+              "score": "0"
+            },
+            {
+              "uci": "c6b7",
+              "score": "0"
+            },
+            {
+              "uci": "c6g2",
+              "score": "0"
+            }
+          ]
+        }
+      ],
+      "finalCheckmate": false
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-06-000zo",
+  "version": 1,
+  "title": "Ладья и слон",
+  "instruction": "Поставьте мат не позднее второго своего хода.",
+  "fen": "4r3/1k6/pp3P2/1b5p/3R1p2/P1R2P2/1P4PP/6K1 b - - 0 35",
+  "side": "b",
+  "category": "Мат в два хода",
+  "difficulty": "Выше средней",
+  "solutions": [["e8e1", "g1f2", "e1f1"]],
+  "hint": "Ладья может вынудить короля выйти на f2.",
+  "explanation": "После Re1+ король обязан идти на f2: слон b5 контролирует f1 и e2, а собственные пешки закрывают вторую горизонталь. Затем Rf1# — ладья защищена тем же слоном.",
+  "source": "https://lichess.org/training/000Zo · Lichess database, CC0 · rating at import 1363",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["e8e1"],
+    "score": "#+2"
+  }
+}

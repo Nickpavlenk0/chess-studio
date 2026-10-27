@@ -1,0 +1,115 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "properties": {
+    "schemaVersion": {
+      "type": "number",
+      "const": 1
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{1,79}$"
+    },
+    "version": {
+      "type": "integer",
+      "exclusiveMinimum": 0,
+      "maximum": 9007199254740991
+    },
+    "title": {
+      "type": "string",
+      "minLength": 1
+    },
+    "instruction": {
+      "type": "string",
+      "minLength": 1
+    },
+    "fen": {
+      "type": "string"
+    },
+    "side": {
+      "type": "string",
+      "enum": [
+        "w",
+        "b"
+      ]
+    },
+    "category": {
+      "type": "string",
+      "minLength": 1
+    },
+    "difficulty": {
+      "type": "string",
+      "enum": [
+        "Базовая",
+        "Средняя",
+        "Выше средней"
+      ]
+    },
+    "solutions": {
+      "minItems": 1,
+      "type": "array",
+      "items": {
+        "minItems": 1,
+        "type": "array",
+        "items": {
+          "type": "string",
+          "pattern": "^[a-h][1-8][a-h][1-8][qrbn]?$"
+        }
+      }
+    },
+    "hint": {
+      "type": "string"
+    },
+    "explanation": {
+      "type": "string"
+    },
+    "source": {
+      "type": "string"
+    },
+    "verification": {
+      "type": "object",
+      "properties": {
+        "engine": {
+          "type": "string"
+        },
+        "depth": {
+          "type": "number"
+        },
+        "bestMoves": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-h][1-8][a-h][1-8][qrbn]?$"
+          }
+        },
+        "score": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "engine",
+        "depth",
+        "bestMoves",
+        "score"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "required": [
+    "schemaVersion",
+    "id",
+    "version",
+    "title",
+    "instruction",
+    "fen",
+    "side",
+    "category",
+    "difficulty",
+    "solutions",
+    "hint",
+    "explanation",
+    "source",
+    "verification"
+  ],
+  "additionalProperties": false
+}

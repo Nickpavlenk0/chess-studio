@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "diag-10-001w5",
+  "version": 1,
+  "title": "Открыть дорогу пешке",
+  "instruction": "Поставьте мат в два хода.",
+  "fen": "1rb3k1/q4rP1/4p2p/3p3p/3P1P2/2P5/2QK3P/3R2R1 w - - 1 30",
+  "side": "w",
+  "category": "Завлечение фигуры",
+  "difficulty": "Базовая",
+  "solutions": [["c2h7", "g8h7", "g7g8q"]],
+  "hint": "Можно завлечь короля на поле, где он не остановит превращение.",
+  "explanation": "Qh7+! — жертва ферзя. Единственный ответ Kxh7 уводит короля с g8 и освобождает поле превращения. После g8=Q# новый ферзь, поддержанный ладьёй g1, ставит мат.",
+  "source": "https://lichess.org/training/001w5 · Lichess database, CC0 · rating at import 1034",
+  "verification": {
+    "engine": "Stockfish 19",
+    "depth": 20,
+    "bestMoves": ["c2h7"],
+    "score": "#+2"
+  }
+}
